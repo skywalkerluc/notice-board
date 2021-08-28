@@ -4,5 +4,7 @@ export interface Notice {
   description: string;
   publishDate: Date;
   viewDate: Date;
+  formattedPublishDate: string;
+  formattedViewDate: string;
   ableToView: boolean;
 }

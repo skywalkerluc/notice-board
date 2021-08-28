@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Notice } from './notice';
+import { Notice } from './domain/notice';
 import { environment } from 'src/environments/environment';
+import { PagedResponse } from './domain/paged-response';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,8 @@ export class NoticeService {
 
   constructor(private http: HttpClient) { }
 
-  public getNotices(): Observable<Notice[]> {
-    return this.http.get<Notice[]>(`${this.apiServerUrl}/notice/all`);
+  public getNotices(): Observable<PagedResponse> {
+    return this.http.get<PagedResponse>(`${this.apiServerUrl}/notice/all`);
   }
 
   public addNotice(notice: Notice): Observable<Notice> {

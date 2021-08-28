@@ -1,7 +1,8 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Notice } from './notice';
+import { Notice } from './domain/notice';
+import { PagedResponse } from './domain/paged-response';
 import { NoticeService } from './notice.service';
 
 @Component({
@@ -23,9 +24,14 @@ export class AppComponent implements OnInit {
 
   public getNotices(): void {
     this.noticeService.getNotices().subscribe(
-      (response: Notice[]) => {
-        const mappedResponse = response.map((obj) => {
-          return { ...obj, ableToView: this.existsAtToggledList(obj)}
+      (response: PagedResponse) => {
+        const mappedResponse = response.content.map((obj) => {
+          return {
+            ...obj,
+            ableToView: this.existsAtToggledList(obj),
+            formattedPublishDate: new Date(obj.publishDate).toLocaleString(),
+            formattedViewDate: new Date(obj.viewDate).toLocaleString()
+          }
         });
         this.notices = mappedResponse;
       },
