@@ -1,9 +1,8 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { Notice } from './domain/notice';
 import { PagedResponse } from './domain/paged-response';
-import { NoticeService } from './notice.service';
+import { NoticeService } from './services/notice.service';
 
 @Component({
   selector: 'app-root',

@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { NoticeService } from './notice.service';
+import { NoticeService } from './services/notice.service';
 
 @NgModule({
   declarations: [

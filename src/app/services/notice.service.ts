@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Notice } from './domain/notice';
+import { Notice } from '../domain/notice';
 import { environment } from 'src/environments/environment';
-import { PagedResponse } from './domain/paged-response';
+import { PagedResponse } from '../domain/paged-response';
 
 @Injectable({
   providedIn: 'root'
